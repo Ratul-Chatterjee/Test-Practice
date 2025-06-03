@@ -1,0 +1,36 @@
+<head>
+    <title>Chatbot</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+</head>
+<body>
+    <h1>ChatGPT Chatbot</h1>
+    <div id="chatbox">
+        <div id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type your message here">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const userMessage = messageInput.value;
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({'message': userMessage})
+            });
+            const data = await response.json();
+            const chatResponse = data.response;
+
+            const messagesDiv = document.getElementById('messages');
+            messagesDiv.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+            messagesDiv.innerHTML += `<div><strong>Bot:</strong> ${chatResponse}</div>`;
+
+            messageInput.value = '';
+        }
+    </script>
+</body>
+</html>

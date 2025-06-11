@@ -1,0 +1,51 @@
+<head>
+    <title>Email Validation</title>
+    <style>
+        body 
+        {
+            font-family: 'Times New Roman', sans-serif;
+            text-align: left;
+            margin: 10px;
+        }
+        input, button 
+        {
+            font-size: 12px;
+            padding: 5px;
+            margin: 5px;
+        }
+        #result {
+            font-size: 15px;
+            font-weight: normal;
+            color: #000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Email Validation Form</h2>
+    <input type="text" id="emailInput" placeholder="Enter your email address">
+    <button onclick="validateEmail()">Validate Email</button>
+    
+    <p id="result"></p>
+    
+    <script>
+        function validateEmail() 
+        {
+            const email = document.getElementById("emailInput").value;
+            const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+            const resultElement = document.getElementById("result");
+            
+            if (regex.test(email)) 
+            {
+                resultElement.innerText = "Valid Email";
+                resultElement.style.color = "green";
+            } 
+            else 
+            {
+                resultElement.innerText = "Invalid Email";
+                resultElement.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,2 +1,2 @@
 # Test-Practice
-Testing different codes for myself
+testing different codes for myself

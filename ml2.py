@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Step 1: Load the data
+# Step 1: Load the data from dataset
 data = pd.read_csv('Medicaldataset.csv')
 
 zero_not_accepted = ['Age', 'Gender', 'Heart rate', 'Systolic blood pressure', 'Diastolic blood pressure', 'Blood sugar', 'CK-MB', 'Troponin']
@@ -80,7 +80,6 @@ def plot_decision_boundary(X, y, model):
     plt.scatter(X.iloc[:, 0], X.iloc[:, 1], c=y, edgecolors='g')
     plt.title('Decision Boundary')
     plt.show()
-
 
 # Assuming the dataset has only 2 features for plotting
 plot_decision_boundary(X_train, y_train, model)
